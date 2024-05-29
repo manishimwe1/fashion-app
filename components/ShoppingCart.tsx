@@ -1,11 +1,8 @@
 "use client";
 
 import { ShoppingCartIcon } from "lucide-react";
-// import { ShoppingCartIcon } from "@heroicons/react/24/solid";
-import React from "react";
 
 const ShoppingCart = () => {
-	// const items = useItemstore((state) => state.items);
 	return (
 		<div className='flex items-center group px-4 py-2 rounded-full cursor-pointer space-x-1 relative'>
 			<ShoppingCartIcon className='w-6 lg:w-8 h-6 lg:h-8 text-black group-hover:scale-105 transition-all ease-in-out' />

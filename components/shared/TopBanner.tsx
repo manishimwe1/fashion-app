@@ -1,5 +1,3 @@
-import React from "react";
-
 const TopBanner = () => {
 	return (
 		<div className='grid grid-cols-1 gap-0.5 lg:grid-cols-3 w-full h-full'>

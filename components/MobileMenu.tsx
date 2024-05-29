@@ -21,9 +21,7 @@ const MobileMenu = () => {
 					</SheetTitle>
 					<SheetDescription>
 						This action cannot be undone. This
-						will permanently delete your account
-						and remove your data from our
-						servers.
+						will delete your account
 					</SheetDescription>
 				</SheetHeader>
 			</SheetContent>

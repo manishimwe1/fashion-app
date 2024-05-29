@@ -1,18 +1,7 @@
 "use client";
 
-import {
-	NavigationMenu,
-	NavigationMenuContent,
-	NavigationMenuIndicator,
-	NavigationMenuItem,
-	NavigationMenuLink,
-	NavigationMenuList,
-	NavigationMenuTrigger,
-	NavigationMenuViewport,
-} from "@/components/ui/navigation-menu";
 import { NAVLINKS } from "@/constant";
 import { cn } from "@/lib/utils";
-import { Bars4Icon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 const Menubar = () => {

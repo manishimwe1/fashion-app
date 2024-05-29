@@ -3,7 +3,6 @@ import { NAVLINKS } from "@/constant";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 
 const NavItems = () => {
 	const pathname = usePathname();

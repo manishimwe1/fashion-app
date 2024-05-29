@@ -1,5 +1,4 @@
 import { SearchIcon } from "lucide-react";
-import React from "react";
 
 const SearchBox = () => {
 	return (
