@@ -24,10 +24,7 @@ const Menubar = () => {
 						key={link.route}
 						href={link.route}
 						className={cn(
-							link.label === "SuperDeals"
-								? "text-red-500"
-								: "",
-							"hover:underline hover:underline-offset-2 text-lg font-bold",
+							"hover:underline hover:underline-offset-2 text-lg font-bold uppercase",
 						)}>
 						{link.label}
 					</Link>

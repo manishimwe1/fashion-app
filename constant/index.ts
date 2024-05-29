@@ -1,16 +1,13 @@
 export const NAVLINKS = [
 	{
-		label: "Home",
+		label: "New in",
 		route: "/",
 	},
 	{
-		label: "New Arrivals",
+		label: "clothing",
 		route: "/new-arrivals",
 	},
-	{
-		label: "Womens",
-		route: "/womens",
-	},
+
 	{
 		label: "Dresses",
 		route: "/dresses",
@@ -18,5 +15,9 @@ export const NAVLINKS = [
 	{
 		label: "Tops",
 		route: "/tops",
+	},
+	{
+		label: "under $5",
+		route: "/womens",
 	},
 ];
