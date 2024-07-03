@@ -1,23 +1,25 @@
 export const NAVLINKS = [
 	{
-		label: "New in",
+		label: "Dashboard",
 		route: "/",
+		image: "/shop.svg",
 	},
 	{
-		label: "clothing",
-		route: "/new-arrivals",
+		label: "Add product",
+		route: "/create-product",
+		image: "/createImg.svg",
 	},
 
-	{
-		label: "Dresses",
-		route: "/dresses",
-	},
-	{
-		label: "Tops",
-		route: "/tops",
-	},
-	{
-		label: "under $5",
-		route: "/womens",
-	},
+	// {
+	// 	label: "Dresses",
+	// 	route: "/dresses",
+	// },
+	// {
+	// 	label: "Tops",
+	// 	route: "/tops",
+	// },
+	// {
+	// 	label: "under $5",
+	// 	route: "/womens",
+	// },
 ];

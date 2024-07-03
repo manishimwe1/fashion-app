@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Menubar from "@/components/Menubar";
+import SidebarPage from "@/components/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,16 +24,18 @@ export default function RootLayout({
 			<body
 				className={cn(
 					inter.className,
-					"select-none",
+					"select-none min-h-screen w-full overflow-hidden bg-[#09090B]",
 				)}>
 				<ThemeProvider
 					attribute='class'
-					defaultTheme='system'
-					enableSystem
+					defaultTheme='dark'
 					disableTransitionOnChange>
 					<Navbar />
-					<Menubar />
-					<main>{children}</main>
+					{/* <Menubar /> */}
+					<main className=' min-h-screen flex items-start justify-between gap-4'>
+						<SidebarPage />
+						{children}
+					</main>
 				</ThemeProvider>
 			</body>
 		</html>
