@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
+// import { toast } from "sonner";
 
 const formSchema = z.object({
 	title: z.string().min(2, {
@@ -36,9 +37,8 @@ export function CreateForm() {
 	});
 
 	function onSubmit(values: z.infer<typeof formSchema>) {
-		// Do something with the form values.
-		// ✅ This will be type-safe and validated.
 		console.log(values);
+		// toast("Event has been created.");
 	}
 
 	return (

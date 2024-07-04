@@ -1,9 +1,7 @@
 import { DarkModeToggle } from "@/components/DarkModeToggle";
-import { ShoppingBagIcon } from "@heroicons/react/24/outline";
-import { Heart, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import LanguageDropDown from "./shared/LanguageDropDown";
 import { Button } from "./ui/button";
 const Navbar = async () => {
 	return (

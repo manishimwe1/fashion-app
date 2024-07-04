@@ -1,11 +1,11 @@
+import Navbar from "@/components/Navbar";
+import SidebarPage from "@/components/Sidebar";
+import { ThemeProvider } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { cn } from "@/lib/utils";
-import Navbar from "@/components/Navbar";
-import Menubar from "@/components/Menubar";
-import SidebarPage from "@/components/Sidebar";
+// import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,6 +35,7 @@ export default function RootLayout({
 					<main className=' min-h-screen flex items-start justify-between gap-4'>
 						<SidebarPage />
 						{children}
+						{/* <Toaster /> */}
 					</main>
 				</ThemeProvider>
 			</body>
