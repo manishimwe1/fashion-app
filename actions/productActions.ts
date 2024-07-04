@@ -19,8 +19,8 @@ export const createProduct = async (
 				"there is error creating product",
 			);
 
-		return JSON.parse(JSON.stringify(product));
 		revalidatePath("/");
+		return JSON.parse(JSON.stringify(product));
 	} catch {
 		throw new Error("Failed to create product");
 	}
@@ -38,6 +38,25 @@ export const AllProduct = async () => {
 			);
 
 		return JSON.parse(JSON.stringify(product));
+	} catch {
+		throw new Error("Failed to create product");
+	}
+};
+export const ProductById = async (id: string) => {
+	try {
+		await connectToDB();
+		if (!id) return;
+		// Implement product creation logic here : ProductType[]
+		const product = await Product.find({
+			_id: id,
+		});
+
+		if (!product)
+			return console.log(
+				"there is error creating product",
+			);
+
+		return JSON.parse(JSON.stringify(product[0]));
 	} catch {
 		throw new Error("Failed to create product");
 	}
