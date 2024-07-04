@@ -16,17 +16,17 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
-// import { toast } from "sonner";
-
-const formSchema = z.object({
-	title: z.string().min(2, {
-		message: "Title must be at least 2 characters.",
-	}),
-	inStock: z.coerce.number(),
-	description: z.string(),
-});
+import { formSchema } from "@/lib/validations";
+import { useFormState } from "react-dom";
+import { createProduct } from "@/actions/productActions";
+import { useState } from "react";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function CreateForm() {
+	const [submitting, setsubmitting] = useState(false);
+	const router = useRouter();
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -38,7 +38,15 @@ export function CreateForm() {
 
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		console.log(values);
-		// toast("Event has been created.");
+		setsubmitting(true);
+		createProduct(values).finally(() => {
+			toast.success(
+				"Product has been added successfully.",
+			);
+			form.reset();
+			setsubmitting(false);
+			router.push("/");
+		});
 	}
 
 	return (
@@ -113,8 +121,16 @@ export function CreateForm() {
 
 				<Button
 					type='submit'
-					className='text-white font-bold hover:bg-[#141416] bg-[#212124]'>
-					Submit
+					className='text-white font-bold hover:bg-[#141416] bg-[#212124]'
+					disabled={submitting}>
+					{submitting ? (
+						<div className='flex items-center gap-2 w-full'>
+							<p>Adding</p>{" "}
+							<Loader2 className='animate-spin h-5 w-5' />
+						</div>
+					) : (
+						<p>Add</p>
+					)}
 				</Button>
 			</form>
 		</Form>
