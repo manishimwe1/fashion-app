@@ -6,6 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import Avatars from "../shared/Avatars";
+import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "./scroll-area";
+import EmptyState from "../EmptyState";
 
 export const CardEffect = ({
 	product,
@@ -18,6 +21,11 @@ export const CardEffect = ({
 		number | null
 	>(null);
 
+	if (product.length <= 0) {
+		return (
+			<EmptyState title='Oops its look like this product is empty' />
+		);
+	}
 	return (
 		<div
 			className={cn(
@@ -59,12 +67,47 @@ export const CardEffect = ({
 					</AnimatePresence>
 					<Card>
 						<CardTitle>{item.title}</CardTitle>
-						<CardDescription>
-							<Avatars
-								seed={item.description}
-								width={20}
-								height={20}
-							/>
+						<CardDescription className='flex flex-col gap-4'>
+							{item.itemsInProduct <= 20 && (
+								<p className='bg-red-500 px-2 py-0.5 rounded-full absolute top-0 -right-2 text-black font-semibold text-[10px] rounded-br-none'>
+									You need! to order new
+									item
+								</p>
+							)}
+							<div className='w-full flex justify-between items-center'>
+								<Avatars
+									seed={item.description}
+									width={30}
+									height={30}
+								/>
+								<p className='text-xs'>
+									Items remain in stock
+									<span
+										className={cn(
+											" ml-2 text-base font-bold",
+											item.itemsInProduct <=
+												20
+												? "text-red-500"
+												: "text-green-300",
+										)}>
+										{
+											item.itemsInProduct
+										}
+									</span>
+								</p>
+							</div>
+							<div className='text-start w-full'>
+								<p className='text-stone-300'>
+									{" "}
+									Buy {item.price} Rwf at{" "}
+									<span>
+										02/08/2024,04:49
+									</span>
+								</p>
+							</div>
+							<ScrollArea className='mt-2 md:mt-4 h-28  text-balance '>
+								{item.description}
+							</ScrollArea>
 						</CardDescription>
 					</Card>
 				</Link>
@@ -83,7 +126,7 @@ export const Card = ({
 	return (
 		<div
 			className={cn(
-				"rounded-2xl h-full w-full overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+				"rounded-2xl px-2 h-full w-full overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
 				className,
 			)}>
 			<div className='relative z-50'>
@@ -117,12 +160,12 @@ export const CardDescription = ({
 	children: React.ReactNode;
 }) => {
 	return (
-		<p
+		<div
 			className={cn(
 				"mt-4 text-zinc-400 tracking-wide leading-relaxed text-sm",
 				className,
 			)}>
 			{children}
-		</p>
+		</div>
 	);
 };

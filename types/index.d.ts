@@ -11,6 +11,6 @@ export type ProductItemType = {
 	productId: string;
 	description: string;
 	brand: string;
-	itemsInprodoct: number;
+	itemsInProduct: number;
 	price: number;
 };

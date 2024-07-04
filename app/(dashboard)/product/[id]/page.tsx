@@ -1,10 +1,12 @@
 import { AllItemAction } from "@/actions/ItemsAction";
 import { ProductById } from "@/actions/productActions";
+import EmptyState from "@/components/EmptyState";
 import HeaderTitle from "@/components/shared/HeaderTitle";
 import { CardEffect } from "@/components/ui/card-effect";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { ProductType } from "@/types";
+import Image from "next/image";
 type Props = {
 	params: {
 		id: string;
@@ -16,8 +18,13 @@ const ProductPage = async ({ params: { id } }: Props) => {
 	const product = await AllItemAction(id);
 	console.log(product, "this is product");
 
+	if (!productId)
+		return (
+			<EmptyState title='oops!!,There is nothing here.' />
+		);
+
 	return (
-		<ScrollArea className='border w-full h-screen flex-1 p-6  flex flex-col gap-3 lg:gap-6 pb-28'>
+		<ScrollArea className=' w-full h-screen flex-1 p-6  flex flex-col gap-3 lg:gap-6 pb-28'>
 			<HeaderTitle
 				id={id}
 				children={

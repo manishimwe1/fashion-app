@@ -22,7 +22,7 @@ export const createProduct = async (
 		revalidatePath("/");
 		return JSON.parse(JSON.stringify(product));
 	} catch {
-		throw new Error("Failed to create product");
+		console.log("Failed to create product");
 	}
 };
 
@@ -39,7 +39,7 @@ export const AllProduct = async () => {
 
 		return JSON.parse(JSON.stringify(product));
 	} catch {
-		throw new Error("Failed to create product");
+		console.log("Failed to create product");
 	}
 };
 export const ProductById = async (id: string) => {
@@ -58,6 +58,6 @@ export const ProductById = async (id: string) => {
 
 		return JSON.parse(JSON.stringify(product[0]));
 	} catch {
-		throw new Error("Failed to create product");
+		console.log("Failed to create product");
 	}
 };
