@@ -24,7 +24,7 @@ export default function RootLayout({
 			<body
 				className={cn(
 					inter.className,
-					"select-none min-h-screen w-full overflow-hidden bg-[#09090B]",
+					"select-none h-full w-full overflow-hidden bg-[#09090B]",
 				)}>
 				<ThemeProvider
 					attribute='class'
@@ -32,7 +32,7 @@ export default function RootLayout({
 					disableTransitionOnChange>
 					<Navbar />
 					{/* <Menubar /> */}
-					<main className=' min-h-screen flex items-start justify-between gap-4'>
+					<main className=' h-full mt-6 flex items-start justify-between gap-4 overflow-hidden'>
 						<SidebarPage />
 						{children}
 						<Toaster />

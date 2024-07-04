@@ -44,17 +44,27 @@ export function CreateItemForm({
 	});
 
 	function onSubmit(values: z.infer<typeof itemSchema>) {
-		console.log(values);
 		setsubmitting(true);
-		createItemAction(values, id).finally(() => {
-			toast.success(
-				"Product has been added successfully.",
-			);
-			form.reset();
-			setsubmitting(false);
-			setShowAddItemsModel(false);
-			router.push(`/product/${id}`);
-		});
+		createItemAction(values, id)
+			.then((res) => {
+				toast.success(
+					"Item has been added successfully.",
+				);
+				setShowAddItemsModel(false);
+				console.log(res, "this is comming results");
+
+				router.push(`/product/${id}`);
+			})
+			.catch((error: any) => {
+				toast.error("Error>>>", error.message);
+				console.log(
+					error.message,
+					"Error in creating Product>>>>>",
+				);
+			})
+			.finally(() => {
+				form.reset();
+			});
 	}
 
 	return (

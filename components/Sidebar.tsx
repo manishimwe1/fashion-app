@@ -15,7 +15,7 @@ import { usePathname } from "next/navigation";
 const SidebarPage = () => {
 	const pathname = usePathname();
 	return (
-		<section className=' hidden md:inline-flex lg:w-[250px] h-screen '>
+		<section className=' hidden md:inline-flex lg:w-[250px] h-full '>
 			<aside className='w-full p-2 text-center flex flex-col gap-4'>
 				<nav className=' py-5 '>
 					{NAVLINKS.map((link) => {

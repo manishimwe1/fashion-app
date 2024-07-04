@@ -1,12 +1,8 @@
-import { model } from "mongoose";
-import { models } from "mongoose";
-import { Schema } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 const ItemSchema = new Schema({
 	productId: {
-		type: Schema.Types.ObjectId,
-		ref: "products",
-		required: true,
+		type: String,
 	},
 
 	title: {
@@ -31,5 +27,6 @@ const ItemSchema = new Schema({
 	},
 });
 
-export const Item =
-	models.item || model("item", ItemSchema);
+export const ItemsInProduct =
+	models.itemsInProduct ||
+	model("itemsInProduct", ItemSchema);
