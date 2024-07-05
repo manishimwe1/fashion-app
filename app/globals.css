@@ -48,3 +48,60 @@
 		--ring: 240 4.9% 83.9%;
 	}
 }
+
+.glassmorphism-auth {
+	background: rgba(6, 3, 3, 0.711);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+}
+.glassmorphism-black {
+	background: rgba(18, 18, 18, 0.64);
+	backdrop-filter: blur(37px);
+	-webkit-backdrop-filter: blur(37px);
+}
+
+/* ======= clerk overrides ======== */
+.cl-socialButtonsIconButton {
+	border: 2px solid #09090b;
+}
+.cl-button {
+	color: white;
+}
+.cl-socialButtonsProviderIcon__github {
+	filter: invert(1);
+}
+.cl-internal-b3fm6y {
+	background: #09090b;
+}
+.cl-formButtonPrimary {
+	background: #09090b;
+}
+.cl-footerActionLink {
+	color: #f97535;
+}
+.cl-headerSubtitle {
+	color: #fff;
+}
+.cl-logoImage {
+	width: 10rem;
+	height: 3rem;
+}
+.cl-internal-4a7e9l {
+	color: #09090b;
+}
+.cl-card {
+	background-color: #0e0e13;
+}
+.cl-cardBox {
+	background-color: #0e0e13 !important;
+}
+.cl-footer {
+	background-color: #0e0e13 !important;
+}
+
+.cl-userButtonPopoverActionButtonIcon {
+	color: white;
+}
+.cl-internal-wkkub3 {
+	color: #f97535;
+}

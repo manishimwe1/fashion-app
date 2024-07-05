@@ -21,24 +21,24 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<ClerkProvider>
+		<ClerkProvider
+			appearance={{
+				baseTheme: {
+					__type: "prebuilt_appearance",
+				},
+			}}>
 			<html lang='en'>
 				<body
 					className={cn(
 						inter.className,
-						"select-none h-full w-full overflow-hidden bg-[#09090B]",
+						"select-none h-full w-full overflow-hidden bg-dark-1",
 					)}>
 					<ThemeProvider
 						attribute='class'
 						defaultTheme='dark'
 						disableTransitionOnChange>
-						<Navbar />
 						{/* <Menubar /> */}
-						<main className=' h-full mt-6 flex items-start justify-between gap-4 overflow-hidden'>
-							<SidebarPage />
-							{children}
-							<Toaster />
-						</main>
+						<main>{children}</main>
 					</ThemeProvider>
 				</body>
 			</html>
