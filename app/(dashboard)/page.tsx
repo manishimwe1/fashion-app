@@ -17,7 +17,9 @@ export default async function Home() {
 			<HeaderTitle title='All product in store' />
 			<section className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 mt-3'>
 				{allProduct.map((product: ProductType) => (
-					<Link href={`/product/${product._id}`}>
+					<Link
+						href={`/product/${product._id}`}
+						key={product._id}>
 						<DashboardCard product={product} />
 					</Link>
 				))}
