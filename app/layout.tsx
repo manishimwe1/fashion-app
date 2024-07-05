@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,25 +21,27 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
-			<body
-				className={cn(
-					inter.className,
-					"select-none h-full w-full overflow-hidden bg-[#09090B]",
-				)}>
-				<ThemeProvider
-					attribute='class'
-					defaultTheme='dark'
-					disableTransitionOnChange>
-					<Navbar />
-					{/* <Menubar /> */}
-					<main className=' h-full mt-6 flex items-start justify-between gap-4 overflow-hidden'>
-						<SidebarPage />
-						{children}
-						<Toaster />
-					</main>
-				</ThemeProvider>
-			</body>
-		</html>
+		<ClerkProvider>
+			<html lang='en'>
+				<body
+					className={cn(
+						inter.className,
+						"select-none h-full w-full overflow-hidden bg-[#09090B]",
+					)}>
+					<ThemeProvider
+						attribute='class'
+						defaultTheme='dark'
+						disableTransitionOnChange>
+						<Navbar />
+						{/* <Menubar /> */}
+						<main className=' h-full mt-6 flex items-start justify-between gap-4 overflow-hidden'>
+							<SidebarPage />
+							{children}
+							<Toaster />
+						</main>
+					</ThemeProvider>
+				</body>
+			</html>
+		</ClerkProvider>
 	);
 }

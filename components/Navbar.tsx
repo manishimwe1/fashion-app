@@ -3,6 +3,12 @@ import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import {
+	SignInButton,
+	SignedIn,
+	SignedOut,
+	UserButton,
+} from "@clerk/nextjs";
 const Navbar = async () => {
 	return (
 		<header className=' w-full px-4 sticky top-0 z-20 border-b border-white/10'>
@@ -34,23 +40,13 @@ const Navbar = async () => {
 					<div className='flex items-center gap-3 '>
 						{/* <LanguageDropDown /> */}
 						<DarkModeToggle />
-						<Button
-							variant={"link"}
-							className='text-white'>
-							Sign in
-						</Button>
-						{/* <div className='relative h-full w-fit '>
-							<Heart className='text-stone-500 h-8 w-8' />
-							<span className='absolute flex items-center justify-center text-xs inset-0  font-bold '>
-								0
-							</span>
-						</div>
-						<div className='relative h-full w-fit '>
-							<ShoppingBagIcon className='text-stone-500 h-8 w-8' />
-							<span className='absolute flex items-center justify-center text-xs inset-0  font-bold !top-2'>
-								0
-							</span>
-						</div> */}
+
+						<SignedOut>
+							<SignInButton />
+						</SignedOut>
+						<SignedIn>
+							<UserButton />
+						</SignedIn>
 					</div>
 				</div>{" "}
 			</div>
