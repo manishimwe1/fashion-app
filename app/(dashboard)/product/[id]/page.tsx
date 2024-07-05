@@ -13,11 +13,15 @@ type ParamsProps = {
 	};
 };
 const ProductPage = async ({
-	params: { id },
-}: ParamsProps) => {
-	console.log(id);
-	const productId: ProductType = await ProductById(id);
-	const product = await AllItemAction(id);
+	params,
+}: {
+	params: { id: string };
+}) => {
+	console.log(params.id);
+	const productId: ProductType = await ProductById(
+		params.id,
+	);
+	const product = await AllItemAction(params.id);
 	console.log(product, "this is product");
 
 	if (!productId)
@@ -28,7 +32,7 @@ const ProductPage = async ({
 	return (
 		<ScrollArea className=' w-full h-screen flex-1 p-6  flex flex-col gap-3 lg:gap-6 pb-28'>
 			<HeaderTitle
-				id={id}
+				id={params.id}
 				children={
 					<p className='text-sm'>
 						All items in{" "}
