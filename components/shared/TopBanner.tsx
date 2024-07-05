@@ -12,7 +12,8 @@ const TopBanner = () => {
 					20% OFF EVERYTHING
 				</p>
 				<p className='text-xs'>
-					Checkout Code 'TAKE20' (exc sale)
+					Checkout Code &apos;TAKE20&apos; (exc
+					sale)
 				</p>
 			</div>
 			<div className='bg-rose-300/50 py-1 w-full h-fit flex flex-col items-center justify-center text-center'>

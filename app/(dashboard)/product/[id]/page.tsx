@@ -6,13 +6,15 @@ import { CardEffect } from "@/components/ui/card-effect";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { ProductType } from "@/types";
-import Image from "next/image";
-type Props = {
+
+type ParamsProps = {
 	params: {
 		id: string;
 	};
 };
-const ProductPage = async ({ params: { id } }: Props) => {
+const ProductPage = async ({
+	params: { id },
+}: ParamsProps) => {
 	console.log(id);
 	const productId: ProductType = await ProductById(id);
 	const product = await AllItemAction(id);
