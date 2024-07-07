@@ -77,7 +77,7 @@ export function CreateItemForm({
 						control={form.control}
 						name='title'
 						render={({ field }) => (
-							<FormItem className=' w-full flex-1 text-start'>
+							<FormItem className=' w-[50%] flex-1 text-start'>
 								<FormLabel>Title</FormLabel>
 								<FormControl>
 									<Input
@@ -95,7 +95,7 @@ export function CreateItemForm({
 						control={form.control}
 						name='itemsInProduct'
 						render={({ field }) => (
-							<FormItem className='text-start'>
+							<FormItem className='text-start w-[50%]'>
 								<FormLabel>
 									How many items in this
 									product
@@ -121,7 +121,7 @@ export function CreateItemForm({
 						control={form.control}
 						name='brand'
 						render={({ field }) => (
-							<FormItem className=' w-full flex-1 text-start'>
+							<FormItem className=' w-[50%] flex-1 text-start'>
 								<FormLabel>
 									Brand of item
 								</FormLabel>
@@ -141,7 +141,7 @@ export function CreateItemForm({
 						control={form.control}
 						name='price'
 						render={({ field }) => (
-							<FormItem className='text-start'>
+							<FormItem className='text-start w-[50%]'>
 								<FormLabel>
 									Price per items
 								</FormLabel>

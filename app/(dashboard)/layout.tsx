@@ -11,7 +11,7 @@ export default function RootLayout({
 	return (
 		<main className='h-full w-full'>
 			<Navbar />
-			<div className='  h-screen  flex items-start justify-between gap-4 overflow-hidden'>
+			<div className='h-screen  flex items-start justify-between gap-4 overflow-hidden'>
 				<SidebarPage />
 
 				{children}
