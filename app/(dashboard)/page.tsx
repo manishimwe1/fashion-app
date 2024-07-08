@@ -1,4 +1,5 @@
 import { AllProduct } from "@/actions/productActions";
+import EmptyState from "@/components/EmptyState";
 import TakePhotoApp from "@/components/TakePhoto";
 import DashboardCard from "@/components/shared/DashboardCard";
 import HeaderTitle from "@/components/shared/HeaderTitle";
@@ -8,12 +9,13 @@ import Link from "next/link";
 
 export default async function Home() {
 	const allProduct: ProductType[] = await AllProduct();
-	if (!allProduct) return console.log("No product found");
+	if (!allProduct)
+		return <EmptyState title={"No product found"} />;
 
 	console.log(allProduct);
 
 	return (
-		<ScrollArea className='flex flex-col min-h-screen gap-4 w-full py-6  flex-1 h-full px-6'>
+		<ScrollArea className=' w-full h-screen flex-1 p-6  flex flex-col gap-3 lg:gap-6 pb-28'>
 			<HeaderTitle title='All product in store' />
 			<section className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 mt-3'>
 				{allProduct.map((product: ProductType) => (

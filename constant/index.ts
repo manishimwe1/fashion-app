@@ -10,10 +10,11 @@ export const NAVLINKS = [
 		image: "/createImg.svg",
 	},
 
-	// {
-	// 	label: "Dresses",
-	// 	route: "/dresses",
-	// },
+	{
+		label: "Selled items",
+		route: "/selled-lists",
+		image: "/dollar.svg",
+	},
 	// {
 	// 	label: "Tops",
 	// 	route: "/tops",

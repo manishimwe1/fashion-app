@@ -84,7 +84,7 @@ export const CardEffect = ({
 									Items remain in stock
 									<span
 										className={cn(
-											" ml-2 text-base font-bold",
+											" ml-2 text-4xl font-bold",
 											item.itemsInProduct <=
 												20
 												? "text-red-500"

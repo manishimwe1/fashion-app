@@ -30,7 +30,7 @@ const ProductPage = async ({
 		);
 
 	return (
-		<ScrollArea className=' w-full h-screen flex-1 p-6  flex flex-col gap-3 lg:gap-6 pb-28'>
+		<ScrollArea className='max-container'>
 			<HeaderTitle
 				id={params.id}
 				element={
