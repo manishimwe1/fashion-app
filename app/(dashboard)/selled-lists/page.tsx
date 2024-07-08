@@ -7,9 +7,30 @@ async function getData(): Promise<Payment[]> {
 	return [
 		{
 			id: "728ed52f",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
+			product: "Hp hgh core I5",
+			paid: "success",
+			date: new Date().toLocaleDateString(),
+			buyed: 20000,
+			purchased: 10000,
+			selled: "Manzi kyle",
+		},
+		{
+			id: "728ed52f",
+			product: "Hp hgh core I5",
+			paid: "not yet",
+			date: new Date().toLocaleDateString(),
+			buyed: 20000,
+			purchased: 10000,
+			selled: "Manzi kyle",
+		},
+		{
+			id: "728ed52f",
+			product: "Hp hgh core I5",
+			paid: "pending",
+			date: new Date().toLocaleDateString(),
+			buyed: 20000,
+			purchased: 10000,
+			selled: "Manzi kyle",
 		},
 		// ...
 	];
