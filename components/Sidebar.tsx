@@ -31,7 +31,7 @@ const SidebarPage = () => {
 								)}>
 								<Link
 									href={link.route}
-									className='flex items-center gap-4 p-2 px-4 font-medium text-dark-2 text-lg'>
+									className='flex items-center gap-4 p-2 px-4 font-medium text-white text-lg'>
 									<Image
 										src={link.image}
 										alt={link.label}
