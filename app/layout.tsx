@@ -35,8 +35,7 @@ export default function RootLayout({
 					)}>
 					<ThemeProvider
 						attribute='class'
-						defaultTheme='dark'
-						disableTransitionOnChange>
+						defaultTheme='dark'>
 						{/* <Menubar /> */}
 						<main>{children}</main>
 					</ThemeProvider>

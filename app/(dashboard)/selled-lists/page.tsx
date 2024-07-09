@@ -1,5 +1,7 @@
 import { Payment, columns } from "@/components/columns";
 import { DataTable } from "@/components/dataTable";
+import HeaderTitle from "@/components/shared/HeaderTitle";
+import { Button } from "@/components/ui/button";
 import React from "react";
 
 async function getData(): Promise<Payment[]> {
@@ -39,6 +41,9 @@ const SelledItemsPage = async () => {
 	const data = await getData();
 	return (
 		<section className='max-container'>
+			<HeaderTitle>
+				<Button>hello</Button>
+			</HeaderTitle>
 			<DataTable columns={columns} data={data} />
 		</section>
 	);

@@ -6,13 +6,13 @@ import AddItemsModel from "./AddItemsModel";
 
 const HeaderTitle = ({
 	title,
-	element,
+	children,
 	button,
 	btnText,
 	id,
 }: {
 	title?: string;
-	element?: ReactNode;
+	children?: ReactNode;
 	button?: boolean;
 	btnText?: string;
 	id?: string;
@@ -27,9 +27,9 @@ const HeaderTitle = ({
 					{title}
 				</h2>
 			)}
-			{element && (
+			{children && (
 				<div className='flex items-center gap-2'>
-					{element}
+					{children}
 				</div>
 			)}
 			{button && (

@@ -47,7 +47,8 @@ export function DataTable<TData, TValue>({
 											<TableHead
 												key={
 													header.id
-												}>
+												}
+												className='font-semibold text-base text-stone-400'>
 												{header.isPlaceholder
 													? null
 													: flexRender(
@@ -83,7 +84,7 @@ export function DataTable<TData, TValue>({
 												key={
 													cell.id
 												}
-												className='rounded-md'>
+												className='rounded-md text-stone-400 !py-2 text-xs md:text-sm'>
 												{flexRender(
 													cell
 														.column

@@ -35,10 +35,6 @@ export const columns: ColumnDef<Payment>[] = [
 		},
 	},
 	{
-		accessorKey: "date",
-		header: "Date",
-	},
-	{
 		accessorKey: "buyed",
 		header: "Buyed at",
 	},
@@ -49,6 +45,10 @@ export const columns: ColumnDef<Payment>[] = [
 	{
 		accessorKey: "selled",
 		header: "Selled to",
+	},
+	{
+		accessorKey: "date",
+		header: "Date",
 	},
 	{
 		accessorKey: "paid",

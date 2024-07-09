@@ -33,17 +33,15 @@ const ProductPage = async ({
 		<ScrollArea className='max-container'>
 			<HeaderTitle
 				id={params.id}
-				element={
-					<p className='text-sm'>
-						All items in{" "}
-						<span className='font-bold text-green-300'>
-							{productId.title}
-						</span>
-					</p>
-				}
 				button={true}
-				btnText='Add new item'
-			/>
+				btnText='Add new item'>
+				<p className='text-sm'>
+					All items in{" "}
+					<span className='font-bold text-green-300'>
+						{productId.title}
+					</span>
+				</p>
+			</HeaderTitle>
 			{/* <BorderBeamDemo product={product} /> */}
 			{/* <QrcodeScanner /> */}
 			<CardEffect product={product} />
