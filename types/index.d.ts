@@ -2,6 +2,7 @@ export type ProductType = {
 	_id: string;
 	title: string;
 	inStock: number;
+	buyedAt: number;
 	description: string;
 };
 

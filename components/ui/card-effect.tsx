@@ -68,7 +68,7 @@ export const CardEffect = ({
 					<Card>
 						<CardTitle>{item.title}</CardTitle>
 						<CardDescription className='flex flex-col gap-4'>
-							{item.itemsInProduct <= 20 && (
+							{item.itemsInProduct <= 10 && (
 								<p className='bg-red-500 px-2 py-0.5 rounded-full absolute top-0 -right-2 text-black font-semibold text-[10px] rounded-br-none'>
 									You need! to order new
 									item
@@ -86,7 +86,7 @@ export const CardEffect = ({
 										className={cn(
 											" ml-2 text-4xl font-bold",
 											item.itemsInProduct <=
-												20
+												10
 												? "text-red-500"
 												: "text-green-300",
 										)}>

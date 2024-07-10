@@ -10,32 +10,56 @@ import { Dispatch, SetStateAction } from "react";
 import HeaderTitle from "./HeaderTitle";
 import { CreateForm } from "./createForm";
 import { CreateItemForm } from "./CreateItemForm";
+import CreateSelledItemForm from "./CreateSelledItemForm";
+import { ProductType } from "@/types";
 
 type Props = {
 	showAddItemsModel: boolean;
 	setShowAddItemsModel: Dispatch<SetStateAction<boolean>>;
-	id: string | undefined;
+	id?: string | undefined;
+	sellProduct?: ProductType;
 };
 const AddItemsModel = ({
 	setShowAddItemsModel,
 	showAddItemsModel,
 	id,
+	sellProduct,
 }: Props) => {
 	return (
 		<Dialog
 			open={showAddItemsModel}
 			onOpenChange={setShowAddItemsModel}
 			modal>
-			<DialogContent className='border border-white/20'>
+			<DialogContent className='border border-white/10 '>
 				<DialogHeader>
-					<HeaderTitle title='Create new item' />
+					<HeaderTitle>
+						{sellProduct ? (
+							<p className='text-base mb-4'>
+								Sell this{" "}
+								<span className='text-lg text-green-300 font-semibold'>
+									{sellProduct.title}
+								</span>
+							</p>
+						) : (
+							<p>Create new item</p>
+						)}
+					</HeaderTitle>
 					<DialogDescription>
-						<CreateItemForm
-							id={id}
-							setShowAddItemsModel={
-								setShowAddItemsModel
-							}
-						/>
+						{sellProduct ? (
+							<CreateSelledItemForm
+								sellProduct={sellProduct}
+								setShowAddItemsModel={
+									setShowAddItemsModel
+								}
+							/>
+						) : (
+							<CreateItemForm
+								id={id}
+								setShowAddItemsModel={
+									setShowAddItemsModel
+								}
+							/>
+						)}
 					</DialogDescription>
 				</DialogHeader>
 			</DialogContent>

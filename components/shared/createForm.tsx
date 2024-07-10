@@ -33,6 +33,7 @@ export function CreateForm() {
 			title: "",
 			inStock: 0,
 			description: "",
+			buyedAt: 0,
 		},
 	});
 
@@ -97,27 +98,56 @@ export function CreateForm() {
 					/>
 				</div>
 
-				<FormField
-					control={form.control}
-					name='description'
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>
-								Description
-							</FormLabel>
-							<FormControl>
-								<Textarea
-									rows={5}
-									placeholder='Description'
-									className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20'
-									{...field}
-								/>
-							</FormControl>
+				<div className='flex w-full gap-4'>
+					<div className='w-[200px]'>
+						<FormField
+							control={form.control}
+							name='buyedAt'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>
+										Buyed at
+									</FormLabel>
+									<FormControl>
+										<Input
+											placeholder='eg:100'
+											type='number'
+											className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20 flex-1'
+											min={0}
+											{...field}
+										/>
+									</FormControl>
 
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+
+					<div className='flex-1 w-full'>
+						<FormField
+							control={form.control}
+							name='description'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>
+										Description
+									</FormLabel>
+									<FormControl>
+										<Textarea
+											rows={1}
+											placeholder='Description'
+											className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20'
+											{...field}
+										/>
+									</FormControl>
+
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+				</div>
 
 				<Button
 					type='submit'

@@ -15,6 +15,10 @@ const ProductSchema = new Schema({
 		type: Number,
 		required: true,
 	},
+	buyedAt: {
+		type: Number,
+		required: true,
+	},
 });
 
 export const Product =

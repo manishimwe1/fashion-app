@@ -29,7 +29,9 @@ export const columns: ColumnDef<Payment>[] = [
 					<div className='bg-green-400 rounded-full h-6 w-6 flex items-center justify-center '>
 						H
 					</div>
-					<p>{product}</p>
+					<p className='text-nowrap font-semibold'>
+						{product}
+					</p>
 				</div>
 			);
 		},
@@ -45,6 +47,17 @@ export const columns: ColumnDef<Payment>[] = [
 	{
 		accessorKey: "selled",
 		header: "Selled to",
+		cell({ row }) {
+			const name: ReactNode = row.getValue("selled");
+
+			return (
+				<div className='flex items-center gap-2'>
+					<p className='text-nowrap font-semibold text-xs'>
+						{name}
+					</p>
+				</div>
+			);
+		},
 	},
 	{
 		accessorKey: "date",

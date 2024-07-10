@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 const EmptyState = ({ title }: { title: String }) => {
 	return (
@@ -11,6 +13,15 @@ const EmptyState = ({ title }: { title: String }) => {
 				alt='empty'
 			/>
 			{title}
+			<Button
+				className='bg-dark-2 hover:bg-dark-1 hover:border border-white/10 '
+				asChild>
+				<Link
+					href={"/create-product"}
+					className='text-white/50'>
+					Create Product
+				</Link>
+			</Button>
 		</div>
 	);
 };

@@ -27,11 +27,7 @@ const HeaderTitle = ({
 					{title}
 				</h2>
 			)}
-			{children && (
-				<div className='flex items-center gap-2'>
-					{children}
-				</div>
-			)}
+			{children && <>{children}</>}
 			{button && (
 				<Button
 					className='bg-[#27272A] text-white hover:bg-[#1c1c20]'

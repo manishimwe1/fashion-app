@@ -2,6 +2,8 @@ import { Payment, columns } from "@/components/columns";
 import { DataTable } from "@/components/dataTable";
 import HeaderTitle from "@/components/shared/HeaderTitle";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 async function getData(): Promise<Payment[]> {
@@ -42,7 +44,23 @@ const SelledItemsPage = async () => {
 	return (
 		<section className='max-container'>
 			<HeaderTitle>
-				<Button>hello</Button>
+				<div className='flex w-full items-center justify-end '>
+					<Button className='btn-effect' asChild>
+						<Link
+							href={
+								"/selled-lists/create-list"
+							}
+							className='flex gap-2'>
+							<Image
+								src={"/plusCircle.svg"}
+								alt='plus circle icon'
+								width={20}
+								height={20}
+							/>
+							Add items
+						</Link>
+					</Button>
+				</div>
 			</HeaderTitle>
 			<DataTable columns={columns} data={data} />
 		</section>

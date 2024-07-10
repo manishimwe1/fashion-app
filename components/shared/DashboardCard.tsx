@@ -1,32 +1,37 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { ProductType } from "@/types";
 import { Progress } from "@/components/ui/progress";
 
 import { ChartBarIcon } from "@heroicons/react/16/solid";
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "../ui/button";
+import CustomButton from "./CustomButton";
+import Image from "next/image";
+import AddItemsModel from "./AddItemsModel";
 
 const DashboardCard = ({
 	product,
 }: {
 	product: ProductType;
 }) => {
-	const isLowInStock = product.inStock <= 20;
+	const [showAddItemsModel, setShowAddItemsModel] =
+		useState(false);
+	const isLowInStock = product.inStock <= 10;
+
+	const handleSellingProduct = () => {
+		setShowAddItemsModel(true);
+	};
 	return (
 		<div
 			className={cn(
 				"border border-[#303046] h-full overflow-hidden w-full flex flex-col gap-4 cursor-pointer hover:shadow-md hover:shadow-[#27272A] rounded-lg hover:transition-all hover:ease-in-out hover:duration-300",
 			)}>
-			<Progress
-				value={product.inStock}
-				className={cn(
-					isLowInStock
-						? "text-red-500"
-						: "text-green-500",
-				)}
-			/>
+			<Progress value={product.inStock} />
 			<div className='w-full flex-col flex-grow h-full p-4'>
 				<div className='w-full flex justify-between items-center'>
-					<h4 className='text-sm font-bold  '>
+					<h4 className='text-lg capitalize text-green-100 font-bold  '>
 						{product.title}
 					</h4>
 					<ChartBarIcon className='text-white h-5 w-5' />
@@ -46,11 +51,43 @@ const DashboardCard = ({
 							</p>
 						)}
 					</div>
+					<h4 className='text-sm text-nowrap py-2'>
+						Buyed at:
+						<span className='text-green-300 text-base font-semibold px-2'>
+							{product.buyedAt}Rwf
+						</span>
+						<span className='text-[10px] text-muted-foreground text-gray-600 '>
+							on: 14/7/2020
+						</span>
+					</h4>
 					<p className='text-[10px] text-muted-foreground text-gray-600 '>
 						+10.8% from last month
 					</p>
 				</div>
 			</div>
+			<div className='flex items-center justify-center w-full'>
+				<Button
+					className='flex items-center gap-2 group bg-dark-2 text-white  cursor-pointer p-3 hover:bg-dark-1 hover:border border-white/10 hover:transition-all duration-200 ease-in-out w-full'
+					onClick={handleSellingProduct}>
+					<Image
+						src={"/arrowTrending.svg"}
+						alt='plus circle icon'
+						width={20}
+						height={20}
+						className='group-hover:invert'
+					/>
+					Sell this Product
+				</Button>
+			</div>
+			{showAddItemsModel && (
+				<AddItemsModel
+					showAddItemsModel={showAddItemsModel}
+					setShowAddItemsModel={
+						setShowAddItemsModel
+					}
+					sellProduct={product}
+				/>
+			)}
 		</div>
 	);
 };
