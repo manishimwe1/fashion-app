@@ -23,24 +23,29 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { ProductType } from "@/types";
 
-export function CreateForm() {
+export function CreateForm({
+	product,
+}: {
+	product?: ProductType;
+}) {
 	const [submitting, setsubmitting] = useState(false);
 	const router = useRouter();
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			title: "",
-			inStock: 0,
-			description: "",
-			buyedAt: 0,
+			title: product?.title ?? "",
+			inStock: product?.inStock ?? 0,
+			description: product?.description ?? "",
+			buyedAt: product?.buyedAt ?? 0,
 		},
 	});
 
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		console.log(values);
 		setsubmitting(true);
-		createProduct(values).finally(() => {
+		createProduct(values, product?._id).finally(() => {
 			toast.success(
 				"Product has been added successfully.",
 			);

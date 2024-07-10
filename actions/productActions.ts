@@ -8,11 +8,21 @@ import { z } from "zod";
 
 export const createProduct = async (
 	values: z.infer<typeof formSchema>,
+	productId: string | undefined,
 ) => {
 	try {
 		await connectToDB();
+		let product;
 		// Implement product creation logic here : ProductType[]
-		const product = await Product.create(values);
+		if (productId) {
+			product = await Product.updateOne(
+				{ _id: productId },
+				{ values },
+			);
+			return product;
+		} else {
+			product = await Product.create(values);
+		}
 
 		if (!product)
 			return console.log(
