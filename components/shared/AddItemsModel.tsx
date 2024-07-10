@@ -30,6 +30,7 @@ const AddItemsModel = ({
 			open={showAddItemsModel}
 			onOpenChange={setShowAddItemsModel}
 			modal>
+			<DialogTitle></DialogTitle>
 			<DialogContent className='border border-white/10 '>
 				<DialogHeader>
 					<HeaderTitle>
@@ -44,7 +45,7 @@ const AddItemsModel = ({
 							<p>Create new item</p>
 						)}
 					</HeaderTitle>
-					<DialogDescription>
+					<div>
 						{sellProduct ? (
 							<CreateSelledItemForm
 								sellProduct={sellProduct}
@@ -60,7 +61,7 @@ const AddItemsModel = ({
 								}
 							/>
 						)}
-					</DialogDescription>
+					</div>
 				</DialogHeader>
 			</DialogContent>
 		</Dialog>

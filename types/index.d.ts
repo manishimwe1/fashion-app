@@ -1,3 +1,5 @@
+import { PurchaseStatus } from "@/lib/validations";
+
 export type ProductType = {
 	_id: string;
 	title: string;
@@ -14,4 +16,13 @@ export type ProductItemType = {
 	brand: string;
 	itemsInProduct: number;
 	price: number;
+};
+
+export type SoldItem = {
+	paid: PurchaseStatus;
+	product: string;
+	date: string;
+	buyedAt: number;
+	selledOn: number;
+	selledTo: string;
 };

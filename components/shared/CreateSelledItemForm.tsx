@@ -25,6 +25,9 @@ import SelectPaidComp from "./SelectPaidComp";
 import { Checkbox } from "../ui/checkbox";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
+import { SellProductAction } from "@/actions/sellProductActions";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const CreateSelledItemForm = ({
 	setShowAddItemsModel,
@@ -34,6 +37,10 @@ const CreateSelledItemForm = ({
 	sellProduct: ProductType;
 }) => {
 	const [submitting, setsubmitting] = useState(false);
+	const [status, setStatus] = useState<PurchaseStatus>(
+		PurchaseStatus.notYet,
+	);
+	const router = useRouter();
 
 	if (!sellProduct)
 		return (
@@ -45,7 +52,7 @@ const CreateSelledItemForm = ({
 		resolver: zodResolver(selledItemSchema),
 		defaultValues: {
 			product: sellProduct.title,
-			paid: PurchaseStatus.notYet,
+			paid: status,
 			selledOn: 0,
 			buyedAt: sellProduct.buyedAt,
 			date: "",
@@ -57,6 +64,30 @@ const CreateSelledItemForm = ({
 		values: z.infer<typeof selledItemSchema>,
 	) {
 		setsubmitting(true);
+		const data = {
+			...values,
+			paid: status,
+		};
+		SellProductAction(data)
+			.then(() => {
+				toast.success(
+					"Item has been sold successfully.",
+				);
+				router.push("/selled-lists");
+				setShowAddItemsModel(false);
+			})
+			.finally(() => {
+				form.reset();
+				setsubmitting(false);
+			})
+			.catch((error: any) => {
+				toast.error("Error>>>", error.message);
+				console.log(
+					error.message,
+					"Error in selling Product>>>>",
+				);
+			});
+		console.log(data);
 	}
 	return (
 		<Form {...form}>
@@ -155,15 +186,20 @@ const CreateSelledItemForm = ({
 						)}
 					/>
 				</div>
-				<div className='w-full flex items-center justify-between'>
+				<div className='w-full flex   justify-between'>
 					<FormField
 						control={form.control}
 						name='selledOn'
 						render={({ field }) => (
-							<FormItem className=''>
+							<FormItem className='w-full'>
 								<FormLabel>Paid</FormLabel>
-								<FormControl>
-									<SelectPaidComp />
+								<FormControl className='w-full border flex flex-1'>
+									<SelectPaidComp
+										status={status}
+										setStatus={
+											setStatus
+										}
+									/>
 								</FormControl>
 
 								<FormMessage />

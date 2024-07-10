@@ -1,42 +1,74 @@
-import { cn } from "@/lib/utils";
+import {
+	Tabs,
+	TabsList,
+	TabsTrigger,
+} from "@/components/ui/tabs";
 import { PurchaseStatus } from "@/lib/validations";
-import { Badge } from "../ui/badge";
-import { Checkbox } from "../ui/checkbox";
 
-const SelectPaidComp = () => {
-	const paidStatus = [1, 2, 3];
-	const handlePaidStatus = () => {};
+import {
+	Dispatch,
+	MouseEvent,
+	SetStateAction,
+	useEffect,
+	useState,
+} from "react";
+
+type Props = {
+	status: PurchaseStatus;
+	setStatus: Dispatch<SetStateAction<PurchaseStatus>>;
+};
+
+const SelectPaidComp = ({ status, setStatus }: Props) => {
+	useEffect(() => {
+		setStatus(PurchaseStatus.notYet);
+	}, []);
+
+	console.log(status);
+	const handlePaidStatus = (
+		e: MouseEvent<HTMLDivElement, MouseEvent>,
+	) => {
+		e.preventDefault();
+		console.log(e.currentTarget, "here");
+	};
 	return (
 		<div className='w-full flex justify-between items-center gap-4'>
-			{Object.values(PurchaseStatus).map((status) => (
-				<div
-					className={cn(
-						"flex w-fit gap-2 items-center rounded-full text-white px-2 py-1 cursor-pointer",
-						status === "not yet" &&
-							"bg-red-500  hover:bg-red-700",
-						status === "pending" &&
-							"bg-blue-500  hover:bg-blue-700",
-						status === "success" &&
-							"bg-green-500  hover:bg-green-700",
-					)}>
-					<Checkbox
-						id={status}
-						value={status}
-						onChange={(e) => {
-							handlePaidStatus;
-						}}
-					/>
-					<label htmlFor={status}>
-						<Badge
-							onClick={handlePaidStatus}
-							className={cn(
-								"bg-transparent text-white font-normal hover:bg-transparent cursor-pointer",
-							)}>
-							{status}
-						</Badge>
-					</label>
-				</div>
-			))}
+			<Tabs
+				//@ts-ignore
+				onValueChange={(value) => setStatus(value)}
+				defaultValue={PurchaseStatus.notYet}
+				className='w-full'>
+				<TabsList className='bg-dark-2'>
+					{Object.values(PurchaseStatus).map(
+						(status) => (
+							<TabsTrigger
+								key={status}
+								value={status}
+								onChange={() =>
+									setStatus(status)
+								}>
+								{status}
+							</TabsTrigger>
+
+							// <Badge
+							// 	onClick={() => {
+							// 		setStatus(status);
+							// 	}}
+							// 	className={cn(
+							// 		"bg-transparent text-white font-normal hover:bg-transparent cursor-pointer",
+							// 	)}>
+							// 	{status}
+							// </Badge>
+						),
+					)}
+				</TabsList>
+				{/* <TabsContent value='account'>
+							Make changes to your account
+							here.
+						</TabsContent>
+						<TabsContent value='password'>
+							Change your password here.
+						</TabsContent> */}
+			</Tabs>
 		</div>
 	);
 };
