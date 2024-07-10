@@ -84,7 +84,7 @@ export function DataTable<ProductType, TValue>({
 												key={
 													cell.id
 												}
-												className='rounded-md text-stone-400 !py-2 text-xs md:text-sm'>
+												className='rounded-md text-stone-400 cursor-pointer hover:transition-all hover:scale-105 hover:duration-200 hover:ease-in-out hover:text-green-200 !py-3 !border-white/5 text-xs md:text-sm'>
 												{flexRender(
 													cell
 														.column

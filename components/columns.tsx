@@ -1,11 +1,10 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { Badge } from "./ui/badge";
 import { ReactNode } from "react";
+import { Badge } from "./ui/badge";
+import Avatars from "./shared/Avatars";
 
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
 export type Payment = {
 	id: string;
 	product: string;
@@ -27,8 +26,12 @@ export const columns: ColumnDef<Payment>[] = [
 
 			return (
 				<div className='flex items-center gap-2'>
-					<div className='bg-green-400 rounded-full h-6 w-6 flex items-center justify-center '>
-						H
+					<div className='border-green-400 rounded-full h-6 w-6 flex items-center justify-center '>
+						<Avatars
+							seed={product?.toString() ?? ""}
+							width={30}
+							height={30}
+						/>
 					</div>
 					<p className='text-nowrap font-semibold capitalize text-green-100'>
 						{product}
