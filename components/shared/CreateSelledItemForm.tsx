@@ -42,12 +42,6 @@ const CreateSelledItemForm = ({
 	);
 	const router = useRouter();
 
-	if (!sellProduct)
-		return (
-			<div className='flex justify-center items-center h-screen'>
-				<Loader2 size={64} />
-			</div>
-		);
 	const form = useForm<z.infer<typeof selledItemSchema>>({
 		resolver: zodResolver(selledItemSchema),
 		defaultValues: {
@@ -60,6 +54,13 @@ const CreateSelledItemForm = ({
 			quantity: undefined,
 		},
 	});
+
+	if (!sellProduct)
+		return (
+			<div className='flex justify-center items-center h-screen'>
+				<Loader2 size={64} />
+			</div>
+		);
 
 	function onSubmit(
 		values: z.infer<typeof selledItemSchema>,
