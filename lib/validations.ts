@@ -46,6 +46,7 @@ export const selledItemSchema = z.object({
 		},
 	),
 	selledOn: z.coerce.number(),
+	quantity: z.coerce.number(),
 	selledTo: z.string(),
 	date: z.string(),
 });

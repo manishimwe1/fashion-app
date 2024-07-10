@@ -57,6 +57,7 @@ const CreateSelledItemForm = ({
 			buyedAt: sellProduct.buyedAt,
 			date: "",
 			selledTo: "",
+			quantity: undefined,
 		},
 	});
 
@@ -67,6 +68,7 @@ const CreateSelledItemForm = ({
 		const data = {
 			...values,
 			paid: status,
+			productId: sellProduct._id,
 		};
 		SellProductAction(data)
 			.then(() => {
@@ -199,6 +201,28 @@ const CreateSelledItemForm = ({
 										setStatus={
 											setStatus
 										}
+									/>
+								</FormControl>
+
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name='quantity'
+						render={({ field }) => (
+							<FormItem className='text-start w-[50%]'>
+								<FormLabel>
+									Quantity
+								</FormLabel>
+								<FormControl>
+									<Input
+										placeholder='eg:100'
+										type='number'
+										className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20 flex-1'
+										min={1}
+										{...field}
 									/>
 								</FormControl>
 

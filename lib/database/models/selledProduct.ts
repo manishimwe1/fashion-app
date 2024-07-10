@@ -22,9 +22,18 @@ const SelledProductSchema = new Schema({
 		type: Number,
 		required: true,
 	},
+	quantity: {
+		type: Number,
+		required: true,
+	},
+
 	createAt: {
 		type: Date,
-		default: new Date().getDate(),
+		default: new Date(),
+	},
+	productId: {
+		type: Schema.Types.ObjectId,
+		ref: "products",
 	},
 });
 

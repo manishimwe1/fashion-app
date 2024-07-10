@@ -10,10 +10,11 @@ export type Payment = {
 	id: string;
 	product: string;
 	paid: "pending" | "not yet" | "success";
-	purchased: number;
+	selledOn: number;
 	buyed: number;
 	date: string;
-	selled: string;
+	selledTo: string;
+	profit: string;
 };
 
 export const columns: ColumnDef<Payment>[] = [
@@ -29,7 +30,7 @@ export const columns: ColumnDef<Payment>[] = [
 					<div className='bg-green-400 rounded-full h-6 w-6 flex items-center justify-center '>
 						H
 					</div>
-					<p className='text-nowrap font-semibold'>
+					<p className='text-nowrap font-semibold capitalize text-green-100'>
 						{product}
 					</p>
 				</div>
@@ -37,18 +38,19 @@ export const columns: ColumnDef<Payment>[] = [
 		},
 	},
 	{
-		accessorKey: "buyed",
+		accessorKey: "buyedAt",
 		header: "Buyed at",
 	},
 	{
-		accessorKey: "purchased",
+		accessorKey: "selledOn",
 		header: "Purchased to",
 	},
 	{
-		accessorKey: "selled",
+		accessorKey: "selledTo",
 		header: "Selled to",
 		cell({ row }) {
-			const name: ReactNode = row.getValue("selled");
+			const name: ReactNode =
+				row.getValue("selledTo");
 
 			return (
 				<div className='flex items-center gap-2'>
@@ -60,8 +62,44 @@ export const columns: ColumnDef<Payment>[] = [
 		},
 	},
 	{
-		accessorKey: "date",
+		accessorKey: "createAt",
 		header: "Date",
+		cell({ row }) {
+			const createAt = row.getValue("createAt");
+			//@ts-ignore
+			const date = new Date(createAt);
+			const nameDate = date.toLocaleString("en-US", {
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+				hour: "numeric",
+				minute: "numeric",
+			});
+			return (
+				<div className='flex items-center gap-2'>
+					<p className='text-nowrap font-semibold text-xs'>
+						{nameDate}
+					</p>
+				</div>
+			);
+		},
+	},
+	{
+		accessorKey: "profit",
+		header: "Profit",
+		cell({ row }) {
+			const buyedAt: number = row.getValue("buyedAt");
+			const selledOn: number =
+				row.getValue("selledOn");
+
+			const profit = selledOn - buyedAt;
+
+			return (
+				<p className='text-nowrap font-semibold text-xs text-right'>
+					{profit}
+				</p>
+			);
+		},
 	},
 	{
 		accessorKey: "paid",

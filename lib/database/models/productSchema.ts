@@ -14,6 +14,7 @@ const ProductSchema = new Schema({
 	inStock: {
 		type: Number,
 		required: true,
+		min: [0, "Price must be at least 0"],
 	},
 	buyedAt: {
 		type: Number,
