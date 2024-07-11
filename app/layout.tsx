@@ -23,8 +23,17 @@ export default function RootLayout({
 	return (
 		<ClerkProvider
 			appearance={{
-				baseTheme: {
-					__type: "prebuilt_appearance",
+				layout: {
+					socialButtonsVariant: "auto",
+					logoImageUrl: "/logo.jpg",
+				},
+				variables: {
+					colorBackground: "#131619",
+					colorPrimary: "#131619",
+					colorText: "white",
+					colorInputBackground: "#09090B",
+					colorInputText: "white",
+					colorShimmer: "white",
 				},
 			}}>
 			<html lang='en'>

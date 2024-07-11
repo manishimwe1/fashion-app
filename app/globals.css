@@ -104,6 +104,10 @@
 .cl-footer {
 	background-color: #0e0e13 !important;
 }
+.cl-button:hover {
+	color: white !important;
+	background-color: #09090b !important;
+}
 
 .cl-userButtonPopoverActionButtonIcon {
 	color: white;

@@ -7,5 +7,6 @@ export const config = {
 		"/((?!.*\\..*|_next).*)",
 		"/",
 		"/(api|trpc)(.*)",
+		"/api/webhooks(.*)",
 	],
 };

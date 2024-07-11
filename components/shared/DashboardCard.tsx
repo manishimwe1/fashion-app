@@ -11,8 +11,9 @@ import CustomButton from "./CustomButton";
 import Image from "next/image";
 import AddItemsModel from "./AddItemsModel";
 import { Pencil } from "lucide-react";
-import { SignedIn } from "@clerk/nextjs";
+import { Protect, SignedIn } from "@clerk/nextjs";
 import Link from "next/link";
+import ProtectElement from "./ProtectElement";
 
 const DashboardCard = ({
 	product,
@@ -37,14 +38,14 @@ const DashboardCard = ({
 					<h4 className='text-lg capitalize text-green-100 font-bold  '>
 						{product.title}
 					</h4>
-					<SignedIn>
+					<ProtectElement>
 						<Link
 							href={`/product/${product._id}/edit-product`}>
 							<div className='w-fit p-2 bg-dark-2 rounded-lg shadow-md shadow-dark-1 group'>
 								<Pencil className='text-white h-4 w-4 group-hover:rotate-45 hover:transition-all hover:duration-200 hover:ease-in-out' />
 							</div>
 						</Link>
-					</SignedIn>
+					</ProtectElement>
 				</div>
 				<div className='flex flex-col w-full'>
 					<div className='w-full flex items-center justify-between'>
@@ -75,7 +76,7 @@ const DashboardCard = ({
 					</p>
 				</div>
 			</div>
-			<SignedIn>
+			<ProtectElement>
 				<div className='flex items-center justify-center w-full'>
 					<Button
 						className='flex items-center gap-2 group bg-dark-2 text-white  cursor-pointer p-3 hover:bg-dark-1 hover:border border-white/10 hover:transition-all duration-200 ease-in-out w-full'
@@ -90,7 +91,7 @@ const DashboardCard = ({
 						Sell this Product
 					</Button>
 				</div>
-			</SignedIn>
+			</ProtectElement>
 			{showAddItemsModel && (
 				<AddItemsModel
 					showAddItemsModel={showAddItemsModel}
