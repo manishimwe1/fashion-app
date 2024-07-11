@@ -7,7 +7,7 @@ import React from "react";
 
 const SelledItemsPage = async () => {
 	const product = await AllSelledProductAction();
-	console.log(product, "this is product here>>>");
+	// console.log(product, "this is product here>>>");
 
 	if (!product)
 		return <EmptyState title={"No product found"} />;

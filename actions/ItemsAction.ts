@@ -11,7 +11,7 @@ export const createItemAction = async (
 	id: string | undefined,
 ) => {
 	if (!id) return;
-	console.log(values);
+	// console.log(values);
 
 	try {
 		await connectToDB();

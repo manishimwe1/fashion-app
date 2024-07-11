@@ -17,7 +17,7 @@ const ProductPage = async ({
 }: {
 	params: { id: string };
 }) => {
-	console.log(params.id);
+	// console.log(params.id);
 	const productId: ProductType = await ProductById(
 		params.id,
 	);

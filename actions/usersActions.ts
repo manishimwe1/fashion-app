@@ -1,12 +1,12 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import User from "@/lib/database/models/userSchema";
 import { connectToDB } from "@/lib/database/db.config";
 import {
 	CreateUserParams,
 	UpdateUserParams,
 } from "@/types";
+import User from "@/lib/database/models/userSchema";
 
 export async function createUser(user: CreateUserParams) {
 	try {

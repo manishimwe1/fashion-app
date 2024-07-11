@@ -41,7 +41,7 @@ export const SellProductAction = async (data: SoldItem) => {
 		if (!result)
 			return console.log("Error in updating result");
 
-		console.log(result);
+		// console.log(result);
 
 		revalidatePath("/");
 		revalidatePath("/selled-lists");

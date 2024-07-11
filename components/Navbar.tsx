@@ -11,8 +11,8 @@ import {
 } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 const Navbar = async () => {
-	const user = await auth();
-	console.log(user.sessionClaims, "this is arg role");
+	const user = auth();
+	console.log(user, "this is arg role");
 
 	return (
 		<header className=' w-full px-4 sticky top-0 z-20 border-b border-white/10'>

@@ -16,7 +16,7 @@ export default async function Home() {
 	if (!allProduct || allProduct.length <= 0)
 		return <EmptyState title={"No product found"} />;
 
-	console.log(allProduct);
+	// console.log(allProduct);
 
 	return (
 		<ScrollArea className=' w-full h-screen flex-1 p-6  flex flex-col gap-3 lg:gap-6 pb-28'>
