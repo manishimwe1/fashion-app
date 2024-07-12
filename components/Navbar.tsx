@@ -47,7 +47,11 @@ const Navbar = async () => {
 						<DarkModeToggle />
 
 						<SignedOut>
-							<SignInButton />
+							<SignInButton
+								signUpFallbackRedirectUrl={
+									"/"
+								}
+							/>
 						</SignedOut>
 						<SignedIn>
 							<UserButton showName={true} />
