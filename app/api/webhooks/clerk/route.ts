@@ -132,11 +132,5 @@ export async function POST(req: Request) {
 		});
 	}
 
-	if (eventType === "organization.created") {
-		const { id, image_url, public_metadata } = evt.data;
-
-		console.log(public_metadata);
-	}
-
 	return new Response("", { status: 200 });
 }

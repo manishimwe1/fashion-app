@@ -1,11 +1,18 @@
 import { Protect, SignedIn } from "@clerk/nextjs";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
-const ProtectElement = ({
+const ProtectElement = async ({
 	children,
+	userEmail,
 }: {
 	children: ReactNode;
+	userEmail: string | undefined;
 }) => {
+	// const userId = await currentUser();
+
+	// console.log(userId);
+	console.log(process.env.ADMIN_USER2, "user admin");
+
 	return (
 		<SignedIn>
 			<Protect
@@ -26,9 +33,8 @@ const ProtectElement = ({
 				// 		content.
 				// 	</p>
 				// }
-			>
-				{children}
-			</Protect>
+			></Protect>
+			{children}
 		</SignedIn>
 	);
 };

@@ -9,10 +9,11 @@ import {
 	SignedOut,
 	UserButton,
 } from "@clerk/nextjs";
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 const Navbar = async () => {
-	const user = auth();
-	console.log(user, "this is arg role");
+	const user = await currentUser();
+
+	console.log(user?.emailAddresses[0].emailAddress);
 
 	return (
 		<header className=' w-full px-4 sticky top-0 z-20 border-b border-white/10'>

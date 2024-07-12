@@ -1,18 +1,15 @@
 "use client";
 
+import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { ProductType } from "@/types";
-import { Progress } from "@/components/ui/progress";
 
-import { ChartBarIcon } from "@heroicons/react/16/solid";
-import React, { useState } from "react";
-import { Button } from "../ui/button";
-import CustomButton from "./CustomButton";
-import Image from "next/image";
-import AddItemsModel from "./AddItemsModel";
 import { Pencil } from "lucide-react";
-import { Protect, SignedIn } from "@clerk/nextjs";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { Button } from "../ui/button";
+import AddItemsModel from "./AddItemsModel";
 import ProtectElement from "./ProtectElement";
 
 const DashboardCard = ({
