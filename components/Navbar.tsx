@@ -2,7 +2,7 @@ import { DarkModeToggle } from "@/components/DarkModeToggle";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
+
 import {
 	SignInButton,
 	SignedIn,

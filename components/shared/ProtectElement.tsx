@@ -8,9 +8,6 @@ const ProtectElement = async ({
 	children: ReactNode;
 	userEmail: string | undefined;
 }) => {
-	// const userId = await currentUser();
-
-	// console.log(userId);
 	console.log(process.env.ADMIN_USER2, "user admin");
 
 	return (
