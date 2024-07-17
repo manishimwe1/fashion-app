@@ -9,8 +9,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Buzima bussiness group",
-	description: "invetory by buzima bussiness group",
+	title: "Buzima booster group",
+	description: "invetory by buzima booster group",
 };
 
 export default function RootLayout({

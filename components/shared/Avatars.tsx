@@ -11,7 +11,7 @@ type Props = {
 const Avatars = ({ seed, width, height }: Props) => {
 	const avatar = createAvatar(rings, {
 		seed,
-		// ... other options
+		
 	});
 	const svg = avatar.toDataUri();
 	return (
