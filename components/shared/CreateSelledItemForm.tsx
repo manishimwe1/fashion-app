@@ -233,7 +233,7 @@ const CreateSelledItemForm = ({
 					/>
 				</div>
 				<div className=' w-full flex items-end justify-end gap-3'>
-					<Button
+					{/* <Button
 						type='button'
 						className='text-white font-bold hover:bg-[#141416]  bg-stone-800 '
 						disabled={submitting}>
@@ -247,7 +247,7 @@ const CreateSelledItemForm = ({
 								Scan Qrcode
 							</p>
 						)}
-					</Button>
+					</Button> */}
 					<Button
 						type='submit'
 						className='text-white font-bold hover:bg-[#141416] bg-[#000000] '

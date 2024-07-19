@@ -18,7 +18,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
 import { formSchema } from "@/lib/validations";
 import { useFormState } from "react-dom";
-import { createProduct } from "@/actions/productActions";
+import {
+	createProduct,
+	EditProduct,
+} from "@/actions/productActions";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
@@ -45,14 +48,25 @@ export function CreateForm({
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		console.log(values);
 		setsubmitting(true);
-		createProduct(values, product?._id).finally(() => {
-			toast.success(
-				"Product has been added successfully.",
-			);
-			form.reset();
-			setsubmitting(false);
-			router.push("/");
-		});
+		if (product) {
+			EditProduct(values, product._id).finally(() => {
+				toast.success(
+					"Product has been edit successfully.",
+				);
+				form.reset();
+				setsubmitting(false);
+				router.push("/");
+			});
+		} else {
+			createProduct(values).finally(() => {
+				toast.success(
+					"Product has been added successfully.",
+				);
+				form.reset();
+				setsubmitting(false);
+				router.push("/");
+			});
+		}
 	}
 
 	return (

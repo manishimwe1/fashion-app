@@ -8,21 +8,42 @@ import { z } from "zod";
 
 export const createProduct = async (
 	values: z.infer<typeof formSchema>,
+) => {
+	try {
+		await connectToDB();
+
+		const product = await Product.create(values);
+
+		if (!product)
+			return console.log(
+				"there is error creating product",
+			);
+
+		revalidatePath("/");
+		return JSON.parse(JSON.stringify(product));
+	} catch {
+		console.log("Failed to create product");
+	}
+};
+export const EditProduct = async (
+	values: z.infer<typeof formSchema>,
 	productId: string | undefined,
 ) => {
 	try {
 		await connectToDB();
-		let product;
-		// Implement product creation logic here : ProductType[]
-		if (productId) {
-			product = await Product.updateOne(
-				{ _id: productId },
-				{ values },
-			);
-			return product;
-		} else {
-			product = await Product.create(values);
+
+		if (!productId) {
+			return null;
 		}
+		const product = await Product.findByIdAndUpdate(
+			{ _id: productId },
+			{
+				title: values.title,
+				description: values.description,
+				inStock: values.inStock,
+				buyedAt: values.buyedAt,
+			},
+		);
 
 		if (!product)
 			return console.log(

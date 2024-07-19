@@ -1,10 +1,7 @@
 import HeaderTitle from "@/components/shared/HeaderTitle";
 import { CreateForm } from "@/components/shared/createForm";
-import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
 
 const page = () => {
-	auth().protect(redirect("/sign-in"));
 	return (
 		<section className='flex flex-col gap-4 w-full py-6  flex-1 h-full px-6 lg:px-0'>
 			<HeaderTitle title='Create product' />

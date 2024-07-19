@@ -1,5 +1,4 @@
 import { DarkModeToggle } from "@/components/DarkModeToggle";
-import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,11 +8,11 @@ import {
 	SignedOut,
 	UserButton,
 } from "@clerk/nextjs";
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
+import SearchBar from "./shared/SearchBar";
+
 const Navbar = async () => {
 	const user = await currentUser();
-
-	console.log(user?.emailAddresses[0].emailAddress);
 
 	return (
 		<header className=' w-full px-4 sticky top-0 z-20 border-b border-white/10'>
@@ -29,18 +28,7 @@ const Navbar = async () => {
 					</div>
 				</Link>
 				<div className='flex items-center gap-3'>
-					<form className=' flex items-center gap-2 bg-secondary rounded-full pr-2 py-1 px-2'>
-						<input
-							className='outline-none  rounded-full placeholder:text-xs px-3  w-full bg-secondary border-none text-stone-950 font-semibold'
-							placeholder='Search anything..'
-						/>
-						<div className='flex rounded-full p-0.5 cursor-pointer'>
-							<Search className='w-8 h-8 text-stone-600 p-1' />
-						</div>
-						<button type='submit' hidden>
-							search
-						</button>
-					</form>
+					<SearchBar />
 
 					<div className='flex items-center gap-3 '>
 						{/* <LanguageDropDown /> */}
