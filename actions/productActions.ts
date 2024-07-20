@@ -92,3 +92,72 @@ export const ProductById = async (id: string) => {
 		console.log("Failed to create product");
 	}
 };
+export const SearchInProduct = async (terms: string) => {
+	try {
+		await connectToDB();
+		if (!terms) return;
+		// Implement product creation logic here : ProductType[]
+		const product = await Product.aggregate([
+			{
+				$match: {
+					title: {
+						$elemMatch: {
+							title: terms,
+						},
+					},
+				},
+			},
+			// {
+			// 	$addFields: {
+			// 		title: {
+			// 			$filter: {
+			// 				input: "$title",
+			// 				cond: {
+			// 					$and: [
+			// 						{
+			// 							$eq: [
+			// 								{
+			// 									$arrayElemAt:
+			// 										[
+			// 											"$$this",
+			// 											0,
+			// 										],
+			// 								},
+			// 								terms,
+			// 							],
+			// 						},
+			// 						{
+			// 							$eq: [
+			// 								{
+			// 									$arrayElemAt:
+			// 										[
+			// 											"$$this",
+			// 											2,
+			// 										],
+			// 								},
+			// 								terms,
+			// 							],
+			// 						},
+			// 					],
+			// 				},
+			// 			},
+			// 		},
+			// 	},
+			// },
+		]);
+
+		if (!product)
+			return console.log(
+				"there is error searching product",
+			);
+
+		console.log(product);
+
+		return JSON.parse(JSON.stringify(product));
+	} catch (error: any) {
+		console.log(
+			"Failed to search this product",
+			error.message,
+		);
+	}
+};

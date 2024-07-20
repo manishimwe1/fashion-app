@@ -28,7 +28,7 @@ export default async function Home() {
 					/>
 				</SignedIn>
 			</HeaderTitle>
-			<section className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 lg:gap-8 mt-3'>
+			<section className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 lg:gap-8 mt-3'>
 				{allProduct.map((product: ProductType) => (
 					<DashboardCard
 						product={product}

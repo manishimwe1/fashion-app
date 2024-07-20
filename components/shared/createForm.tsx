@@ -27,6 +27,7 @@ import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { ProductType } from "@/types";
+import Link from "next/link";
 
 export function CreateForm({
 	product,
@@ -74,7 +75,7 @@ export function CreateForm({
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
 				className='space-y-8'>
-				<div className='w-full flex justify-between items-center gap-4'>
+				<div className='w-full flex flex-col sm:flex-row justify-between items-center gap-4'>
 					<FormField
 						control={form.control}
 						name='title'
@@ -97,11 +98,11 @@ export function CreateForm({
 						control={form.control}
 						name='inStock'
 						render={({ field }) => (
-							<FormItem>
+							<FormItem className='sm:w-fit w-full'>
 								<FormLabel>
 									Product in stock
 								</FormLabel>
-								<FormControl>
+								<FormControl className='w-full border'>
 									<Input
 										placeholder='eg:100'
 										type='number'
@@ -117,13 +118,35 @@ export function CreateForm({
 					/>
 				</div>
 
-				<div className='flex w-full gap-4'>
-					<div className='w-[200px]'>
+				<div className='flex w-full gap-4 sm:flex-row flex-col'>
+					<div className='flex flex-row sm:flex-col sm:w-fit w-full gap-4'>
 						<FormField
 							control={form.control}
 							name='buyedAt'
 							render={({ field }) => (
-								<FormItem>
+								<FormItem className='w-full sm:w-fit'>
+									<FormLabel>
+										Buyed at
+									</FormLabel>
+									<FormControl>
+										<Input
+											placeholder='eg:100'
+											type='number'
+											className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20 flex-1'
+											min={0}
+											{...field}
+										/>
+									</FormControl>
+
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name='buyedAt'
+							render={({ field }) => (
+								<FormItem className='w-full sm:w-fit'>
 									<FormLabel>
 										Buyed at
 									</FormLabel>
@@ -154,7 +177,7 @@ export function CreateForm({
 									</FormLabel>
 									<FormControl>
 										<Textarea
-											rows={1}
+											rows={6}
 											placeholder='Description'
 											className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20'
 											{...field}
@@ -167,20 +190,29 @@ export function CreateForm({
 						/>
 					</div>
 				</div>
-
-				<Button
-					type='submit'
-					className='text-white font-bold hover:bg-[#141416] bg-[#212124]'
-					disabled={submitting}>
-					{submitting ? (
-						<div className='flex items-center gap-2 w-full'>
-							<p>Adding</p>{" "}
-							<Loader2 className='animate-spin h-5 w-5' />
-						</div>
-					) : (
-						<p>Add</p>
-					)}
-				</Button>
+				<div className='w-full flex justify-end items-center gap-6'>
+					<Button
+						asChild
+						type='button'
+						className='text-white font-bold hover:bg-destructive border border-white/10 bg-transparent hover:transition-all duration-200 hover:ease-in-out '>
+						<Link href='/'>
+							<p>cancel</p>
+						</Link>
+					</Button>
+					<Button
+						type='submit'
+						className='text-white font-bold hover:bg-[#141416] bg-[#212124] '
+						disabled={submitting}>
+						{submitting ? (
+							<div className='flex items-center gap-2 w-full'>
+								<p>Adding</p>{" "}
+								<Loader2 className='animate-spin h-5 w-5' />
+							</div>
+						) : (
+							<p>Add</p>
+						)}
+					</Button>
+				</div>
 			</form>
 		</Form>
 	);
