@@ -29,9 +29,9 @@ const DashboardCard = ({
 				"border border-[#303046] h-full overflow-hidden w-full flex flex-col gap-4 cursor-pointer hover:shadow-md hover:shadow-[#27272A] rounded-lg hover:transition-all hover:ease-in-out hover:duration-300",
 			)}>
 			<Progress value={product.inStock} />
-			<div className='w-full flex-col flex-grow h-full p-4'>
+			<div className='w-full flex-col flex-grow h-full p-3'>
 				<div className='w-full flex justify-between items-center'>
-					<h4 className='text-lg capitalize text-green-100 font-bold  '>
+					<h4 className='text-lg capitalize text-green-100 font-bold   text-nowrap truncate'>
 						{product.title}
 					</h4>
 
@@ -44,15 +44,15 @@ const DashboardCard = ({
 				</div>
 				<div className='flex flex-col w-full'>
 					<div className='w-full flex items-center justify-between'>
-						<p className='text-[9px] text-muted-foreground text-gray-600 '>
+						<p className='text-[9px] text-muted-foreground text-gray-600  line-clamp-3'>
 							{product.description}
 						</p>
 						{isLowInStock ? (
-							<p className='font-extrabold text-lg text-red-500'>
+							<p className='font-extrabold text-2xl text-red-500'>
 								{product.inStock}
 							</p>
 						) : (
-							<p className='font-extrabold text-lg text-green-500'>
+							<p className='font-extrabold text-2xl text-green-500'>
 								{product.inStock}
 							</p>
 						)}
@@ -62,13 +62,15 @@ const DashboardCard = ({
 						<span className='text-green-300 text-base font-semibold px-2'>
 							{product.buyedAt}Rwf
 						</span>
-						<span className='text-[10px] text-muted-foreground text-gray-600 '>
-							on: 14/7/2020
-						</span>
 					</h4>
-					<p className='text-[10px] text-muted-foreground text-gray-600 '>
-						+10.8% from last month
-					</p>
+					<div className='w-full flex justify-between gap-4'>
+						<p className='text-[10px] text-muted-foreground text-gray-600 text-nowrap'>
+							on: 14/7/2020
+						</p>
+						<p className='text-[10px] text-muted-foreground text-gray-600  truncate'>
+							+10.8% from last month
+						</p>
+					</div>
 				</div>
 			</div>
 

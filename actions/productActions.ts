@@ -61,7 +61,9 @@ export const AllProduct = async () => {
 	try {
 		await connectToDB();
 		// Implement product creation logic here : ProductType[]
-		const product = await Product.find();
+		const product = await Product.find().sort({
+			metacritic: -1,
+		});
 
 		if (!product)
 			return console.log(
@@ -97,54 +99,10 @@ export const SearchInProduct = async (terms: string) => {
 		await connectToDB();
 		if (!terms) return;
 		// Implement product creation logic here : ProductType[]
-		const product = await Product.aggregate([
-			{
-				$match: {
-					title: {
-						$elemMatch: {
-							title: terms,
-						},
-					},
-				},
-			},
-			// {
-			// 	$addFields: {
-			// 		title: {
-			// 			$filter: {
-			// 				input: "$title",
-			// 				cond: {
-			// 					$and: [
-			// 						{
-			// 							$eq: [
-			// 								{
-			// 									$arrayElemAt:
-			// 										[
-			// 											"$$this",
-			// 											0,
-			// 										],
-			// 								},
-			// 								terms,
-			// 							],
-			// 						},
-			// 						{
-			// 							$eq: [
-			// 								{
-			// 									$arrayElemAt:
-			// 										[
-			// 											"$$this",
-			// 											2,
-			// 										],
-			// 								},
-			// 								terms,
-			// 							],
-			// 						},
-			// 					],
-			// 				},
-			// 			},
-			// 		},
-			// 	},
-			// },
-		]);
+
+		const product = await Product.find({
+			$text: { $search: terms },
+		});
 
 		if (!product)
 			return console.log(

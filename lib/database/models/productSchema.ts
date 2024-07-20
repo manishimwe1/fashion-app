@@ -21,6 +21,7 @@ const ProductSchema = new Schema({
 		required: true,
 	},
 });
+ProductSchema.index({ title: "text", description: "text" });
 
 export const Product =
 	models.products || model("products", ProductSchema);

@@ -23,9 +23,11 @@ const MobileMenu = () => {
 			<SheetTrigger>
 				<MenuIcon className='h-10 w-10 text-stone-200' />
 			</SheetTrigger>
-			<SheetContent side={"right"}>
+			<SheetContent
+				side={"right"}
+				className='border border-white/10 !px-2'>
 				<SheetHeader>
-					<nav className=' py-5 '>
+					<nav className=' py-5  !px-0'>
 						{NAVLINKS.map((link) => {
 							const isActive =
 								link.route === pathname;

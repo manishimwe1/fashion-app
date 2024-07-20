@@ -19,7 +19,7 @@ export default async function Home() {
 	// console.log(allProduct);
 
 	return (
-		<ScrollArea className=' w-full h-screen flex-1 p-6  flex flex-col gap-3 lg:gap-6 pb-28'>
+		<section className=' w-full h-full flex-1 p-6  flex flex-col gap-3 lg:gap-6'>
 			<HeaderTitle title='All product in store'>
 				<SignedIn>
 					<CustomButton
@@ -38,6 +38,6 @@ export default async function Home() {
 			</section>
 
 			{/* <TopBanner /> */}
-		</ScrollArea>
+		</section>
 	);
 }

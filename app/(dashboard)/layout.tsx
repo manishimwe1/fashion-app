@@ -14,7 +14,9 @@ export default function RootLayout({
 			<div className='h-screen  flex items-start justify-between gap-4 overflow-hidden'>
 				<SidebarPage />
 
-				{children}
+				<ScrollArea className=' h-[87%] lg:h-[90%] w-full '>
+					{children}
+				</ScrollArea>
 				<Toaster />
 			</div>
 		</main>

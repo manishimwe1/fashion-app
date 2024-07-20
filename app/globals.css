@@ -115,3 +115,27 @@
 .cl-internal-wkkub3 {
 	color: #f97535;
 }
+
+::-webkit-scrollbar {
+	width: 10px;
+	background-color: transparent;
+	border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: none;
+	border-radius: 100%;
+	border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #1d1f21;
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #3f3347;
+}

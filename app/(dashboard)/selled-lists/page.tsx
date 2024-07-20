@@ -13,7 +13,7 @@ const SelledItemsPage = async () => {
 		return <EmptyState title={"No product found"} />;
 
 	return (
-		<section className='max-container'>
+		<section className='h-full  p-2 w-full overflow-x-scroll'>
 			<DataTable columns={columns} data={product} />
 		</section>
 	);
