@@ -52,6 +52,7 @@ const CreateSelledItemForm = ({
 			date: "",
 			selledTo: "",
 			quantity: undefined,
+			phoneNumber: 0,
 		},
 	});
 
@@ -148,7 +149,7 @@ const CreateSelledItemForm = ({
 						render={({ field }) => (
 							<FormItem className='text-start w-[50%]'>
 								<FormLabel>
-									Buyed at
+									Yaranguwe
 								</FormLabel>
 								<FormControl>
 									<Input
@@ -172,7 +173,7 @@ const CreateSelledItemForm = ({
 						render={({ field }) => (
 							<FormItem className='text-start w-[50%]'>
 								<FormLabel>
-									Selled on
+									Igurishijwe aya
 								</FormLabel>
 								<FormControl>
 									<Input
@@ -220,7 +221,7 @@ const CreateSelledItemForm = ({
 								</FormLabel>
 								<FormControl>
 									<Input
-										placeholder='eg:100'
+										placeholder={`max qty is ${sellProduct.inStock}`}
 										type='number'
 										className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20 flex-1'
 										min={1}
@@ -234,6 +235,33 @@ const CreateSelledItemForm = ({
 						)}
 					/>
 				</div>
+				{status === PurchaseStatus.notYet &&(
+					<div className='w-full flex   justify-between'>
+					
+					<FormField
+						control={form.control}
+						name='phoneNumber'
+						render={({ field }) => (
+							<FormItem className='text-start w-[50%]'>
+								<FormLabel>
+									Phone number
+								</FormLabel>
+								<FormControl>
+									<Input
+										placeholder="eg:0785892993"
+										type='number'
+										className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20 flex-1'
+										
+										{...field}
+									/>
+								</FormControl>
+
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+				</div>
+				)}
 				<div className=' w-full flex items-end justify-end gap-3'>
 					{/* <Button
 						type='button'

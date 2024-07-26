@@ -19,7 +19,7 @@ export default async function Home() {
 	// console.log(allProduct);
 
 	return (
-		<section className=' w-full h-full flex-1 p-6  flex flex-col gap-3 lg:gap-6 border overflow-y-scroll'>
+		<section className=' w-full h-full flex-1 p-6  flex flex-col gap-3 lg:gap-6  overflow-y-scroll'>
 			<HeaderTitle title='All product in store'>
 				<SignedIn>
 					<CustomButton

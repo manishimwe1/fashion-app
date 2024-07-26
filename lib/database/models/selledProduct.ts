@@ -26,6 +26,10 @@ const SelledProductSchema = new Schema({
 		type: Number,
 		required: true,
 	},
+	phoneNumber: {
+		type: Number,
+		
+	},
 
 	createAt: {
 		type: Date,

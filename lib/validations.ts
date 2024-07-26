@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export enum PurchaseStatus {
-	pending = "pending",
+	// pending = "pending",
 	notYet = "not yet",
 	success = "success",
 }
@@ -31,7 +31,7 @@ export const selledItemSchema = z.object({
 	buyedAt: z.coerce.number(),
 	paid: z.enum(
 		[
-			PurchaseStatus.pending,
+			// PurchaseStatus.pending,
 			PurchaseStatus.notYet,
 			PurchaseStatus.success,
 		],
@@ -49,4 +49,5 @@ export const selledItemSchema = z.object({
 	quantity: z.coerce.number(),
 	selledTo: z.string(),
 	date: z.string(),
+	phoneNumber:z.coerce.number() || undefined,
 });

@@ -19,6 +19,9 @@ function SearchBarBox() {
 			const product = await SearchInProduct(
 				debouncedValue,
 			);
+			if (!product) return;
+			console.log("product found", product);
+			
 			setProductFound(product);
 		};
 		getProduct();
