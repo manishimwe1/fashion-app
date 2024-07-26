@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 240 10% 3.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 240 10% 3.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 240 10% 3.9%;
+		--primary: 240 5.9% 10%;
+		--primary-foreground: 0 0% 98%;
+		--secondary: 240 4.8% 95.9%;
+		--secondary-foreground: 240 5.9% 10%;
+		--muted: 240 4.8% 95.9%;
+		--muted-foreground: 240 3.8% 46.1%;
+		--accent: 240 4.8% 95.9%;
+		--accent-foreground: 240 5.9% 10%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 240 5.9% 90%;
+		--input: 240 5.9% 90%;
+		--ring: 240 5.9% 10%;
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 240 10% 3.9%;
+		--foreground: 0 0% 98%;
+		--card: 240 10% 3.9%;
+		--card-foreground: 0 0% 98%;
+		--popover: 240 10% 3.9%;
+		--popover-foreground: 0 0% 98%;
+		--primary: 0 0% 98%;
+		--primary-foreground: 240 5.9% 10%;
+		--secondary: 240 3.7% 15.9%;
+		--secondary-foreground: 0 0% 98%;
+		--muted: 240 3.7% 15.9%;
+		--muted-foreground: 240 5% 64.9%;
+		--accent: 240 3.7% 15.9%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 240 3.7% 15.9%;
+		--input: 240 3.7% 15.9%;
+		--ring: 240 4.9% 83.9%;
+	}
+	.max-container {
+		@apply w-full h-screen flex-1 p-6  flex flex-col gap-3 lg:gap-6 pb-28;
+	}
+	.btn-effect {
+		@apply bg-dark-2 text-white  p-3 hover:bg-dark-1 hover:border border-white/10 hover:transition-all duration-200 ease-in-out;
+	}
+}
+
+.glassmorphism-auth {
+	background: rgba(6, 3, 3, 0.711);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+}
+.glassmorphism-black {
+	background: rgba(18, 18, 18, 0.64);
+	backdrop-filter: blur(37px);
+	-webkit-backdrop-filter: blur(37px);
+}
+
+/* ======= clerk overrides ======== */
+.cl-socialButtonsIconButton {
+	border: 2px solid #09090b;
+}
+.cl-button {
+	color: white;
+}
+.cl-socialButtonsProviderIcon__github {
+	filter: invert(1);
+}
+.cl-internal-b3fm6y {
+	background: #09090b;
+}
+.cl-formButtonPrimary {
+	background: #09090b;
+}
+.cl-footerActionLink {
+	color: #f97535;
+}
+.cl-headerSubtitle {
+	color: #fff;
+}
+.cl-logoImage {
+	width: 10rem;
+	height: 3rem;
+}
+.cl-internal-4a7e9l {
+	color: #09090b;
+}
+.cl-card {
+	background-color: #0e0e13;
+}
+.cl-cardBox {
+	background-color: #0e0e13 !important;
+}
+.cl-footer {
+	background-color: #0e0e13 !important;
+}
+.cl-button:hover {
+	color: white !important;
+	background-color: #09090b !important;
+}
+
+.cl-userButtonPopoverActionButtonIcon {
+	color: white;
+}
+.cl-internal-wkkub3 {
+	color: #f97535;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	background-color: transparent;
+	border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: none;
+	border-radius: 100%;
+	border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #1d1f21;
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #3f3347;
+}
