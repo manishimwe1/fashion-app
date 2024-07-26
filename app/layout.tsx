@@ -38,11 +38,7 @@ export default function RootLayout({
 				<body
 					className={cn(
 						inter.className,
-<<<<<<< HEAD
-						"select-none h-full w-full overflow-hidden bg-dark-2 dark:bg-dark-1",
-=======
 						"select-none h-full w-full overflow-hidden bg-dark-1",
->>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 					)}>
 					<ThemeProvider
 						attribute='class'

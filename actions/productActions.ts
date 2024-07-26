@@ -109,11 +109,7 @@ export const SearchInProduct = async (terms: string) => {
 				"there is error searching product",
 			);
 
-<<<<<<< HEAD
-		// console.log(product,'product here>>>');
-=======
 		console.log(product);
->>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 
 		return JSON.parse(JSON.stringify(product));
 	} catch (error: any) {

@@ -126,11 +126,7 @@ export function CreateForm({
 							render={({ field }) => (
 								<FormItem className='w-full sm:w-fit'>
 									<FormLabel>
-<<<<<<< HEAD
 										Yaranguwe
-=======
-										Buyed at
->>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 									</FormLabel>
 									<FormControl>
 										<Input
@@ -152,11 +148,7 @@ export function CreateForm({
 							render={({ field }) => (
 								<FormItem className='w-full sm:w-fit'>
 									<FormLabel>
-<<<<<<< HEAD
-										Yaranguwe
-=======
-										Buyed at
->>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
+										izagurijwa
 									</FormLabel>
 									<FormControl>
 										<Input
