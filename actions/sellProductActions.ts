@@ -10,8 +10,11 @@ import { revalidatePath } from "next/cache";
 export const SellProductAction = async (data: SoldItem) => {
 	try {
 		await connectToDB();
+<<<<<<< HEAD
 		console.log(data);
 		
+=======
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 		const product = await SelledProduct.create(data);
 
 		if (!product)

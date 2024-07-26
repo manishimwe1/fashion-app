@@ -58,7 +58,11 @@ const DashboardCard = ({
 						)}
 					</div>
 					<h4 className='text-sm text-nowrap py-2'>
+<<<<<<< HEAD
 						Yaranguwe:
+=======
+						Buyed at:
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 						<span className='text-green-300 text-base font-semibold px-2'>
 							{product.buyedAt}Rwf
 						</span>

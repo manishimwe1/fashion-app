@@ -25,7 +25,10 @@ export type SoldItem = {
 	buyedAt: number;
 	selledOn: number;
 	selledTo: string;
+<<<<<<< HEAD
 	phoneNumber: number;
+=======
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 };
 
 // ====== USER PARAMS

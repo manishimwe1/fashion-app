@@ -42,7 +42,11 @@ export const columns: ColumnDef<Payment>[] = [
 	},
 	{
 		accessorKey: "buyedAt",
+<<<<<<< HEAD
 		header: "Yaranguwe",
+=======
+		header: "Buyed at",
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 	},
 	{
 		accessorKey: "selledOn",

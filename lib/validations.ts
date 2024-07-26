@@ -1,7 +1,11 @@
 import { z } from "zod";
 
 export enum PurchaseStatus {
+<<<<<<< HEAD
 	// pending = "pending",
+=======
+	pending = "pending",
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 	notYet = "not yet",
 	success = "success",
 }
@@ -31,7 +35,11 @@ export const selledItemSchema = z.object({
 	buyedAt: z.coerce.number(),
 	paid: z.enum(
 		[
+<<<<<<< HEAD
 			// PurchaseStatus.pending,
+=======
+			PurchaseStatus.pending,
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 			PurchaseStatus.notYet,
 			PurchaseStatus.success,
 		],
@@ -49,5 +57,8 @@ export const selledItemSchema = z.object({
 	quantity: z.coerce.number(),
 	selledTo: z.string(),
 	date: z.string(),
+<<<<<<< HEAD
 	phoneNumber:z.coerce.number() || undefined,
+=======
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 });

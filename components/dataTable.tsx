@@ -32,7 +32,11 @@ export function DataTable<ProductType, TValue>({
 	});
 
 	return (
+<<<<<<< HEAD
 		<Table className=' bg-dark-2 rounded-md overflow-x-scroll'>
+=======
+		<Table className=' bg-dark-2 rounded-md'>
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 			<TableHeader className={""}>
 				{table
 					.getHeaderGroups()

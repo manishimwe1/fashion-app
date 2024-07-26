@@ -52,7 +52,10 @@ const CreateSelledItemForm = ({
 			date: "",
 			selledTo: "",
 			quantity: undefined,
+<<<<<<< HEAD
 			phoneNumber: 0,
+=======
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 		},
 	});
 
@@ -149,7 +152,11 @@ const CreateSelledItemForm = ({
 						render={({ field }) => (
 							<FormItem className='text-start w-[50%]'>
 								<FormLabel>
+<<<<<<< HEAD
 									Yaranguwe
+=======
+									Buyed at
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 								</FormLabel>
 								<FormControl>
 									<Input
@@ -173,7 +180,11 @@ const CreateSelledItemForm = ({
 						render={({ field }) => (
 							<FormItem className='text-start w-[50%]'>
 								<FormLabel>
+<<<<<<< HEAD
 									Igurishijwe aya
+=======
+									Selled on
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 								</FormLabel>
 								<FormControl>
 									<Input
@@ -181,7 +192,10 @@ const CreateSelledItemForm = ({
 										type='number'
 										className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20 flex-1'
 										min={1}
+<<<<<<< HEAD
 										
+=======
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 										{...field}
 									/>
 								</FormControl>
@@ -221,11 +235,18 @@ const CreateSelledItemForm = ({
 								</FormLabel>
 								<FormControl>
 									<Input
+<<<<<<< HEAD
 										placeholder={`max qty is ${sellProduct.inStock}`}
 										type='number'
 										className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20 flex-1'
 										min={1}
 										max={sellProduct.inStock}
+=======
+										placeholder='eg:100'
+										type='number'
+										className='text-sm placeholder:text-xs focus-visible:border-white/20 focus:border-white/20 focus-visible:ring-white/20 flex-1'
+										min={1}
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 										{...field}
 									/>
 								</FormControl>
@@ -235,6 +256,7 @@ const CreateSelledItemForm = ({
 						)}
 					/>
 				</div>
+<<<<<<< HEAD
 				{status === PurchaseStatus.notYet &&(
 					<div className='w-full flex   justify-between'>
 					
@@ -262,6 +284,8 @@ const CreateSelledItemForm = ({
 					/>
 				</div>
 				)}
+=======
+>>>>>>> c0a725d794c10a1486bd56c17b71dddaa06c3253
 				<div className=' w-full flex items-end justify-end gap-3'>
 					{/* <Button
 						type='button'
